@@ -1,0 +1,11 @@
+<%= simple_form_for @venue do |form| %>
+
+	<%= form.input :name %>
+	<%= form.input :address %>
+	<%= form.input :capacity %>
+	<%= form.input :price_in_pence %>
+	<%= form.input :is_available %>
+
+	<%= form.button :submit %>
+
+<% end %>

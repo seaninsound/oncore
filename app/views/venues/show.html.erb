@@ -1,0 +1,23 @@
+<h2>
+	<%= @venue.name %>
+</h2>
+
+<%= simple_format @venue.address %>
+
+<p>
+
+		There is room for <%= pluralize @venue.capacity, "people" %>
+	</p>
+
+	<p>
+
+		<%= @venue.price_in_pence %> pence
+	</p>
+
+	<p>
+
+		<%= link_to "Edit this venue", edit_venue_path(@venue), class: "button" %>
+
+		<%= link_to "Delete this venue", venue_path(@venue), method: :delete, 
+		class: "button", confirm: "Are you sure?" %>
+	</p>
