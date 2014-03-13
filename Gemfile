@@ -72,3 +72,7 @@ gem "omniauth-linkedin"
 #admin
 gem "activeadmin", github: "gregbell/active_admin"
 
+#adding in zurb for styles
+gem "foundation-rails"
+
+
