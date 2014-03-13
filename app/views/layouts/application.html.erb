@@ -20,11 +20,23 @@
           <%= link_to "Oncore", root_path %>
         </h1>
 
-        <ul class "side-nav">
-          <li>sign up</li>
+        <ul class="side-nav">
+
+          <% if logged_in? %>
+            <li><%= current_user.username %></li>
+            <li><%= link_to "Add a venue", new_venue_path %></li>
+            <li>Log Out</li>
+
+          <% else %>
+
+          <li><%= link_to "Sign up", new_user_path %></li>
           <li>log in</li>
+
+          <% end %>
+
         </ul>
 
+      
       </div>
       
       <div class="large-9 columns">
