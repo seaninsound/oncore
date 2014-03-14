@@ -1,5 +1,9 @@
 class VenuesController < ApplicationController
 
+#I want to make sure that we're logged in on new,create, edit, update and destroy
+before_action :make_sure_logged_in, 
+				only: [:new, :create, :edit, :update, :destroy]
+
 	def index
 		#show a list of all venues 
 		@venues = Venue.all 
@@ -12,12 +16,18 @@ class VenuesController < ApplicationController
 
 	def new
 		#add a venue
-		@venue = Venue.new
+		#@venue = Venue.new
+		@venue = current_user.venues.new
+
 	end
 
 	def create
 		#enter a venue into the database
-		@venue = Venue.new(venue_params)
+		#@venue = Venue.new(venue_params)
+		
+		@venue = current_user.venues.new(venue_params)
+		
+
 		if @venue.save
 			flash[:success] = "Thank you. Your venue has been added." 
 			redirect_to venue_path(@venue)
@@ -28,11 +38,14 @@ class VenuesController < ApplicationController
 	end
 
 	def edit
-		@venue = Venue.find(params[:id])
+		#@venue = Venue.find(params[:id])
+		@venue = current_user.venues.find(params[:id])
+		
 	end
 
 	def update
-		@venue = Venue.find(params[:id])
+		#@venue = Venue.find(params[:id])
+		@venue = current_user.venues.find(params[:id])
 
 		if @venue.update(venue_params)
 			flash[:success] = "Your venue has been updated"
@@ -44,7 +57,8 @@ class VenuesController < ApplicationController
 	end
 
 	def destroy
-		@venue = Venue.find(params[:id])
+		#@venue = Venue.find(params[:id])
+		@venue = current_user.venues.find(params[:id])
 		@venue.destroy
 		flash[:success] = "Your venue has been destroyed!"
 		redirect_to root_path

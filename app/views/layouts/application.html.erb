@@ -25,12 +25,13 @@
           <% if logged_in? %>
             <li><%= current_user.username %></li>
             <li><%= link_to "Add a venue", new_venue_path %></li>
-            <li>Log Out</li>
+            
+            <li><%= link_to "Log Out", session_path, method: :delete %> </li>
 
           <% else %>
 
           <li><%= link_to "Sign up", new_user_path %></li>
-          <li>log in</li>
+          <li><%= link_to "Log in", new_session_path %> </li>
 
           <% end %>
 
@@ -41,6 +42,19 @@
       
       <div class="large-9 columns">
       
+        <% if flash[:success].present? %>
+          <div data-alert class="alert-box success">
+            <%= flash[:success] %>
+          </div>
+          <% end %>
+
+        <% if flash[:error].present? %>
+          <div data-alert class="alert-box warning">
+            <%= flash[:error] %>
+          </div>
+          <% end %>
+
+
           <%= yield %>
       </div>
     </div>

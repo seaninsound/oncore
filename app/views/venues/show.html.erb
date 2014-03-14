@@ -14,6 +14,18 @@
 		<%= @venue.price_in_pence %> pence
 	</p>
 
+	<% if @venue.user.present? %>
+	<p>
+		This venue was posted by <%= @venue.user.username %>
+	</p>
+	<% end %>
+
+
+<% if logged_in? and current_user == @venue.user %>
+
+
+
+
 	<p>
 
 		<%= link_to "Edit this venue", edit_venue_path(@venue), class: "button" %>
@@ -21,3 +33,11 @@
 		<%= link_to "Delete this venue", venue_path(@venue), method: :delete, 
 		class: "button", confirm: "Are you sure?" %>
 	</p>
+
+<% else %>
+	<p>
+		<a href="#" class="button">Book this venue</a>
+	</p>
+	
+	<% end %>
+
