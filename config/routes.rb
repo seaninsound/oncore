@@ -1,4 +1,10 @@
 Oncore::Application.routes.draw do
+
+#to add a page i.e. about page 
+#{}"about" => "contents#about"
+
+get "auth/:provider/callback" => "social_logins#create"
+
   
 resources :venues do
 	#because I'm placing orders onto venues
