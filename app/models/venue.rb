@@ -2,7 +2,8 @@ class Venue < ActiveRecord::Base
 
 	#add relations between other models
 	belongs_to :user
-
+	has_many :orders
+	
 	#validate certain things
 
 	#validate certain things

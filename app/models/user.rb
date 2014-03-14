@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
 #relationships
 has_many :venues
+has_many :orders 
 
 #validations
 validates :name, presence: true

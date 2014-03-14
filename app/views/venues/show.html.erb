@@ -9,7 +9,7 @@
 
 <p>
 
-		There is room for <%= pluralize @venue.capacity, "people" %>
+		There is space for <%= pluralize @venue.capacity, "people" %>
 	</p>
 
 	<p>
@@ -37,7 +37,7 @@
 
 <% else %>
 	<p>
-		<a href="#" class="button">Book this venue</a>
+		<%= link_to "Book this venue", new_venue_order_path(@venue), class: "button" %>
 	</p>
 	
 <% end %>

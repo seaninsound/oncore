@@ -1,3 +1,9 @@
+
+#this is your Striple api password (secret)
+Stripe.api_key = "sk_live_x5Te2pxqosOdxf0A6df259hT"
+#this your striple api username (key)
+STRIPE_KEY = "pk_live_IGd1BElDNyO7RewjyZmVBi3y"
+
 Oncore::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
