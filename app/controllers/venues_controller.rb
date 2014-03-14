@@ -67,6 +67,6 @@ before_action :make_sure_logged_in,
 
 	def venue_params
 		#this whitelists our form data
-		params.require(:venue).permit(:name, :address, :capacity, :price_in_pence, :is_available)
+		params.require(:venue).permit(:name, :address, :capacity, :price_in_pence, :is_available, :image)
 	end
 end

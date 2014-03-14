@@ -4,6 +4,11 @@
 
 	<div>
 		<h3>
+			<% if venue.image? %>
+			<%= image_tag venue.image(:large) %>
+			<% else %>
+
+			<% end %>
 			<%= link_to venue.name, venue_path(venue) %>
 		<h3>
 	</div>
