@@ -32,6 +32,9 @@ class OrdersController < ApplicationController
 				)
 
 
+			#to send owner of the venue an email
+			OrderMailer.new_order(@order).deliver
+
 			flash[:success] = "Your venue is now booked"
 			redirect_to root_path(@venue)
 		else
